@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    button { margin: 6px; padding: 8px 14px; cursor: pointer; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .danger { background: #e53935; color: white; border: none; }
+    .success { background: #43a047; color: white; border: none; }
+    .status-open { color: green; font-weight: bold; }
+    .status-closed { color: red; font-weight: bold; }
+    table { margin-top: 15px; border-collapse: collapse; width: 100%; }
+    th, td { padding: 8px; border: 1px solid #333; }
+  </style>
+</head>
+
+<body>
+  <h2>Admin Dashboard</h2>
+
+  <!-- CITY -->
+  <select id="city">
+    <option value="Patna">Patna</option>
+    <option value="Mumbai">Mumbai</option>
+  </select>
+
+  <button onclick="syncCity()">Sync City</button>
+  <button onclick="loadData()">Load Data</button>
+
+  <hr>
+
+  <!-- FORM STATUS -->
+  <p>
+    Form Status:
+    <span id="formStatusLabel" class="status-open">OPEN</span>
+  </p>
+
+  <!-- GLOBAL FORM CONTROLS -->
+  <button id="closeBtn" class="danger" onclick="confirmClose()">
+    Close All Forms
+  </button>
+
+  <button id="openBtn" class="success" onclick="confirmOpen()" disabled>
+    Open All Forms
+  </button>
+
+  <p id="status"></p>
+
+  <!-- DATA TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Gender</th>
+        <th>Nationality</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
